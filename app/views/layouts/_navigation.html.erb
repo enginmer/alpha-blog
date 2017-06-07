@@ -22,8 +22,22 @@
             <a class="dropdown-item" href="#">Another action</a>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
-        </li>        
+        </li>
       <% end %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarCategoriesDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarCategoriesDropdownMenuLink">
+          <%= link_to "All Categories", categories_path, class: "dropdown-item" %>
+          <% Category.all.each do |category| %>
+            <%= link_to "#{category.name}", category_path(category), class: "dropdown-item" %>
+          <% end %>
+          <% if logged_in? and current_user.admin? %>
+            <hr>
+            <%= link_to "Create New Category", new_category_path, class: "dropdown-item" %>
+          <% end %>
+        </div>
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search">
@@ -32,10 +46,10 @@
     <ul class="navbar-nav navbar-right">
       <% if logged_in? %>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarAdminProfileDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Your Profile <%= "Admin" if current_user.admin? %>
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <div class="dropdown-menu" aria-labelledby="navbarAdminProfileDropdownMenuLink">
             <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
             <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
           </div>
