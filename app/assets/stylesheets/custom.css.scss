@@ -77,6 +77,17 @@
   padding-left: 0;
 }
 
+.badge {
+  background-color: #CEF6F5;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.form-check-input input {
+  width: auto !important;
+}
+
 .pagination {
   padding-top: 10px;
   padding-bottom: 5px;
@@ -109,4 +120,11 @@ footer ul li {
 
 .card {
   margin: 10px;
+}
+
+.debug_dump {
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+  background-color: lightgrey;
 }
