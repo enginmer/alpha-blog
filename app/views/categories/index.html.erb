@@ -5,7 +5,9 @@
   <div class="row justify-content-md-center pagination">
     
     <div class="col-10 col-md-auto">
+      
       <%= will_paginate(@categories, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+      
     </div>
     
   </div>
@@ -22,11 +24,19 @@
 
             <div class="card-block">
 
-              <li class="article-title"><%= link_to "#{category.name}", category_path(category) %></li>
+              <li class="article-title">
+                
+                <%= link_to "#{category.name}", category_path(category) %>
+              
+              </li>
               
               <li>
                 
-                <small><%= pluralize(category.articles.count, "article") %></small>
+                <small>
+                  
+                  <%= pluralize(category.articles.count, "article") %>
+                
+                </small>
                 
               </li>
 
@@ -45,7 +55,9 @@
   <div class="row justify-content-md-center pagination">
     
     <div class="col-10 col-md-auto">
+      
       <%= will_paginate(@categories, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+      
     </div>
     
   </div>
